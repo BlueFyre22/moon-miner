@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"
+    defer></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="style.css">
+
+
+
+  <title>Moon Miner</title>
+</head>
+
+<body>
+  <header>
+    <h1 class="text-center text-light">Moon Miner!!</h1>
+  </header>
+
+
+  <main class="text-light">
+    <!-- Moon and Mining Power Display Section -->
+    <section class="container-fluid">
+      <div class="row p-3">
+        <div class="col-12 justify-content-center d-flex">
+          <img
+            src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExajNydWp6YjRsd211bWptamhsZnpmazZwYW85bm85bWI3bWNteXgxOCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/jt9t5NrqUZ1MiUw5IL/giphy.gif"
+            alt="" class="moon" onclick="mine()">
+        </div>
+
+
+        <div class="row cheese-row p-0 m-0 d-flex">
+          <div id="mine-power" class="col-md-3 fs-3 text-end">
+            👆
+          </div>
+          <div id="cheese-display" class="col-md-4 text-center text-light display-4">
+            🧀 0 🧀
+          </div>
+          <div id="auto-mine-power" class="col-md-3 fs-3 text-start align-items-end">
+            ⏱️
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Upgrade Section -->
+    <section class="container-fluid my-3">
+      <div class="row fs-1 d-flex justify-content-center ">
+        <div class="col-12 d-flex flex-wrap flex-row text-center fs-4">
+
+          <div class="col-3 border border-primary p-1 my-3">
+            Click Upgrades
+          </div>
+          <div class="col-3 p-1 my-3 border border-primary">
+            Automatic Upgrades
+          </div>
+          <div class="col-3 border border-primary p-1 my-3">
+            Click Stats
+          </div>
+          <div class="col-3 border border-primary p-1 my-3">
+            Automatic Stats
+          </div>
+
+
+          <div class="col-3 d-flex px-3">
+            <button class="btn btn-success col-6 fs-5 my-3" id="stone-pickaxe" onclick="buyPickaxe(`stone-pickaxe`)">10
+              🧀</button>
+            <div class="col-6 fs-5 my-3">Stone Pickaxe +1</div>
+          </div>
+          <div class="col-3 d-flex px-3">
+            <button class="btn btn-danger col-6 fs-5 my-3" id="cheap-miner"
+              onclick="buyMiner(`cheap-miner`)">300🧀</button>
+            <div class="col-6 fs-5 my-3">Cheap Miner +10</div>
+          </div>
+          <div class="col-3 d-flex px-3">
+            <div class="col-6 fs-5" id="number-of-stone-pickaxe">0 ⛏️</div>
+            <div class="col-6 fs-5" id="stone-pickaxe-bonus">➡️ 0</div>
+          </div>
+          <div class="col-3 d-flex px-3">
+            <div class="col-6" id="number-of-cheap-miner">0👷</div>
+            <div class="col-6" id="cheap-miner-bonus">⏱️0</div>
+          </div>
+
+
+          <div class="col-3 d-flex px-3">
+            <button class="btn btn-primary col-6 fs-5 my-3" id="copper-pickaxe"
+              onclick="buyPickaxe(`copper-pickaxe`)">50
+              🧀</button>
+            <div class="col-6 fs-5 my-3">Copper Pickaxe +2</div>
+          </div>
+          <div class="col-3 d-flex px-3">
+            <button class="btn btn-dark col-6 fs-5 my-3" id="mediocre-miner"
+              onclick="buyMiner(`mediocre-miner`)">500🧀</button>
+            <div class="col-6 fs-5 my-3">Mediocre Miner +20</div>
+          </div>
+          <div class="col-3 d-flex px-3">
+            <div class="col-6 fs-5" id="number-of-copper-pickaxe">0 🪓</div>
+            <div class="col-6 fs-5" id="copper-pickaxe-bonus">➡️ 0</div>
+          </div>
+          <div class="col-3 d-flex px-3">
+            <div class="col-6" id="number-of-mediocre-miner">0👷‍♂️</div>
+            <div class="col-6" id="mediocre-miner-bonus">⏱️0</div>
+          </div>
+
+          <div class="col-3 border border-primary p-1 my-3">
+            Speed Upgrades
+          </div>
+          <div class="col-3 p-1 my-3 border border-primary">
+            Secret Upgrades
+          </div>
+          <div class="col-3 border border-primary p-1 my-3">
+            Speed Stats
+          </div>
+          <div class="col-3 border border-primary p-1 my-3">
+            Secret Stats
+          </div>
+
+          <div class="col-3 d-flex px-3">
+            <button class="btn btn-primary col-6 fs-5 my-3" id="" onclick="">5,000
+              🧀</button>
+            <div class="col-6 fs-5 my-3">Auto Miner Speed Increase</div>
+          </div>
+          <div class="col-3 d-flex px-3">
+            <button class="btn btn-dark col-6 fs-5 my-3" id="" onclick="">5,000,000🧀</button>
+            <div class="col-6 fs-5 my-3">Redacted Information</div>
+          </div>
+          <div class="col-3 d-flex px-3">
+            <div class="col-6 fs-5" id="">0 ⏩</div>
+            <div class="col-6 fs-5" id="">➡️ 0</div>
+          </div>
+          <div class="col-3 d-flex px-3">
+            <div class="col-6" id="">0❔</div>
+            <div class="col-6" id="">0🌏</div>
+          </div>
+
+        </div>
+      </div>
+
+
+    </section>
+
+
+
+
+
+  </main>
+
+  <footer>
+
+
+  </footer>
+  <script src="app.js"></script>
+</body>
+
+</html>

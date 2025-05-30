@@ -1,0 +1,26 @@
+body {
+  background-image: url(https://t3.ftcdn.net/jpg/07/49/01/20/240_F_749012021_yYx1gKibP9QtZ9C8zrOxlQNMrRBGaYQ8.jpg);
+  background-size: cover;
+
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  justify-content: space-between;
+}
+
+main {
+  flex-grow: 1;
+}
+
+.moon {
+  height: 40dvh;
+  padding: 1rem;
+}
+
+.cheese-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  user-select: none;
+}
