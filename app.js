@@ -1,6 +1,6 @@
 console.log("MINE SOME STUFF!!")
 
-let cheese = 10000;
+let cheese = 0;
 let minePower = 1;
 let autoMinePower = 0;
 
@@ -13,8 +13,12 @@ let minePowerDisplay = document.getElementById("mine-power")
 const planets = [
   {
     name: 'moon',
-
+    price: 0
   },
+  {
+    name: "secret-moon",
+    price: 50000,
+  }
 ]
 
 const clickUpgrades = [
@@ -74,7 +78,9 @@ const automaticUpgrades = [
 const speedUpgrades = [
   {
     name: "speed",
-    value: 3000
+    value: 3000,
+    price: 5000,
+    quantity: 0,
   }
 ]
 
@@ -83,9 +89,6 @@ const speedUpgrades = [
 function buyPickaxe(typeOfAxe) {
   //use the find method for arrays
   const foundAxe = clickUpgrades.find((clickUpgrade) => clickUpgrade.name == typeOfAxe)
-
-  console.log(foundAxe)
-
 
   if (cheese >= foundAxe.price) {
     cheese -= foundAxe.price
@@ -106,8 +109,6 @@ function buyPickaxe(typeOfAxe) {
 
 function buyMiner(qualityMiner) {
   const foundMiner = automaticUpgrades.find((autoUpgrade) => autoUpgrade.name == qualityMiner)
-  console.log(foundMiner)
-  console.log(automaticUpgrades)
 
   if (cheese >= foundMiner.price) {
     cheese -= foundMiner.price
@@ -117,7 +118,6 @@ function buyMiner(qualityMiner) {
     drawAutoMinePower()
     document.getElementById("number-of-" + qualityMiner).innerText = `${foundMiner.quantity} ${foundMiner.emoji}`
     document.getElementById(qualityMiner + "-bonus").innerText = `⏱️ ${foundMiner.bonus * foundMiner.quantity}`
-
     foundMiner.price = Math.round(foundMiner.price * 1.2)
     drawNewMinerPurchasePrice(foundMiner.name)
 
@@ -127,7 +127,29 @@ function buyMiner(qualityMiner) {
   }
 }
 
+let intervalValue = 3000
+let intervalId = setInterval(collectAutomaticUpgrades, intervalValue);
+let speedObject = speedUpgrades[0]
 
+function decreaseIntervalTime() {
+  if (cheese >= speedObject.price) {
+    cheese -= speedObject.price
+    clearInterval(intervalId)
+    intervalValue = Math.round(intervalValue * .8)
+    speedObject.price = Math.round(speedObject.price * 1.2)
+    intervalId = setInterval(collectAutomaticUpgrades, intervalValue)
+
+    speedObject.quantity++
+    drawCheese()
+
+    document.getElementById("speed-button").innerHTML = `${speedObject.price} 🧀`
+    document.getElementById("speed-level").innerHTML = `${speedObject.quantity} ⏩`
+    document.getElementById("speed-value").innerHTML = `➡️${intervalValue} ms`
+  } else {
+    window.alert("Not Enough Cheese to Pay the Miners to Go Faster")
+  }
+
+}
 
 
 
@@ -147,10 +169,22 @@ function collectAutomaticUpgrades() {
 
 
 //endregion
-
+let secretMoon = planets[1]
+function secretUnlock() {
+  if (cheese >= secretMoon.price)
+    document.getElementById("secret-moon").setAttribute("style", "display: inline")
+  document.getElementById("secret-moon-x3").setAttribute("style", "display: inline")
+  cheese -= secretMoon.price
+  drawCheese()
+}
 
 function mine() {
   cheese += minePower
+  drawCheese()
+}
+
+function mine2() {
+  cheese += Math.round(minePower * 5)
   drawCheese()
 }
 
@@ -193,7 +227,5 @@ drawCheese()
 
 
 
-
-setInterval(collectAutomaticUpgrades, 3000);
 
 //#endregion 

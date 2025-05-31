@@ -32,7 +32,12 @@
             src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExajNydWp6YjRsd211bWptamhsZnpmazZwYW85bm85bWI3bWNteXgxOCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/jt9t5NrqUZ1MiUw5IL/giphy.gif"
             alt="" class="moon" onclick="mine()">
         </div>
-
+        <div class="col-12 justify-content-center d-flex align-items-center">
+          <img
+            src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExemdnOWNjYzA3YmkwczRnMGIzd2NobGVna3M2bmNrbzdkYXNqanA4bSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/G9V9cAFlYBHl6/giphy.gif"
+            alt="" class="moon2 " onclick="mine2()" style="display:none" id="secret-moon">
+          <span style="display:none" class="text-end fs-1" id="secret-moon-x3">x5</span>
+        </div>
 
         <div class="row cheese-row p-0 m-0 d-flex">
           <div id="mine-power" class="col-md-3 fs-3 text-end">
@@ -74,7 +79,7 @@
             <div class="col-6 fs-5 my-3">Stone Pickaxe +1</div>
           </div>
           <div class="col-3 d-flex px-3">
-            <button class="btn btn-danger col-6 fs-5 my-3" id="cheap-miner"
+            <button class="btn btn-info col-6 fs-5 my-3" id="cheap-miner"
               onclick="buyMiner(`cheap-miner`)">300🧀</button>
             <div class="col-6 fs-5 my-3">Cheap Miner +10</div>
           </div>
@@ -89,13 +94,13 @@
 
 
           <div class="col-3 d-flex px-3">
-            <button class="btn btn-primary col-6 fs-5 my-3" id="copper-pickaxe"
+            <button class="btn btn-success col-6 fs-5 my-3" id="copper-pickaxe"
               onclick="buyPickaxe(`copper-pickaxe`)">50
               🧀</button>
             <div class="col-6 fs-5 my-3">Copper Pickaxe +2</div>
           </div>
           <div class="col-3 d-flex px-3">
-            <button class="btn btn-dark col-6 fs-5 my-3" id="mediocre-miner"
+            <button class="btn btn-info col-6 fs-5 my-3" id="mediocre-miner"
               onclick="buyMiner(`mediocre-miner`)">500🧀</button>
             <div class="col-6 fs-5 my-3">Mediocre Miner +20</div>
           </div>
@@ -122,17 +127,17 @@
           </div>
 
           <div class="col-3 d-flex px-3">
-            <button class="btn btn-primary col-6 fs-5 my-3" id="" onclick="">5,000
+            <button class="btn btn-primary col-6 fs-5 my-3" id="speed-button" onclick="decreaseIntervalTime()">5,000
               🧀</button>
             <div class="col-6 fs-5 my-3">Auto Miner Speed Increase</div>
           </div>
           <div class="col-3 d-flex px-3">
-            <button class="btn btn-dark col-6 fs-5 my-3" id="" onclick="">5,000,000🧀</button>
+            <button class="btn btn-danger col-6 fs-5 my-3" id="" onclick="secretUnlock()">50,000🧀</button>
             <div class="col-6 fs-5 my-3">Redacted Information</div>
           </div>
           <div class="col-3 d-flex px-3">
-            <div class="col-6 fs-5" id="">0 ⏩</div>
-            <div class="col-6 fs-5" id="">➡️ 0</div>
+            <div class="col-6 fs-5" id="speed-level">0 ⏩</div>
+            <div class="col-6 fs-5" id="speed-value">➡️ 0</div>
           </div>
           <div class="col-3 d-flex px-3">
             <div class="col-6" id="">0❔</div>

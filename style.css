@@ -8,6 +8,10 @@ body {
   justify-content: space-between;
 }
 
+btn-pink {
+  background-color: pink;
+}
+
 main {
   flex-grow: 1;
 }
@@ -16,6 +20,12 @@ main {
   height: 40dvh;
   padding: 1rem;
 }
+
+.moon2 {
+  height: 20dvh;
+  padding: 1rem;
+}
+
 
 .cheese-row {
   display: flex;
