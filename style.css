@@ -26,6 +26,10 @@ main {
   padding: 1rem;
 }
 
+.btn-min-width {
+  min-width: 100px;
+}
+
 
 .cheese-row {
   display: flex;
