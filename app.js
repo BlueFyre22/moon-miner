@@ -170,12 +170,18 @@ function collectAutomaticUpgrades() {
 
 //endregion
 let secretMoon = planets[1]
+
 function secretUnlock() {
-  if (cheese >= secretMoon.price)
+  if (cheese >= secretMoon.price) {
+
     document.getElementById("secret-moon").setAttribute("style", "display: inline")
-  document.getElementById("secret-moon-x3").setAttribute("style", "display: inline")
-  cheese -= secretMoon.price
-  drawCheese()
+    document.getElementById("secret-moon-x3").setAttribute("style", "display: inline")
+    cheese -= secretMoon.price
+    drawCheese()
+  }
+  else {
+    window.alert("There isn't enough cheese in the reserves to fund this expedition!")
+  }
 }
 
 function mine() {
